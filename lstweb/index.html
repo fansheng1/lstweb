@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Token-LST Video System</title>
+		<link rel="stylesheet" href="style/reset.css" />
+		<link rel="stylesheet" href="style/common.css" />
+		<!-- <link rel="stylesheet" href="style/yibiao.css" /> -->
+		<link rel="stylesheet" href="style/user.css" />
+		<link rel="stylesheet" href="style/controller.css" />
+		<!-- <link rel="stylesheet" type="text/css" href="./style/pagination.css" media="screen"> -->
+		<link rel="stylesheet" href="style/ui-grid/ui-grid.css" type="text/css">
+		<link rel="stylesheet" href="style/ui-grid-self.css" />
+		<link rel="stylesheet" href="style/bukong.css" />
+		<link rel="stylesheet" type="text/css" href="laydate/need/laydate.css" />
+		<link rel="stylesheet" href="style/track.css" />
+		<link rel="stylesheet" href="style/head.css" />
+		<link rel="stylesheet" href="style/layout.css" />
+		<link rel="stylesheet" href="style/sidebar-task.css" />
+		<link rel="stylesheet" href="style/right-div.css" />
+		
+		<script src="app/js/angular.js"></script>
+		<!-- <script src="js/angular-route.min.js"></script> -->
+		<script src="app/js/jquery-3.1.1.min.js"></script>
+		<script src="app/js/jquery-form.js"></script>
+		<script src="laydate/laydate.js"></script>
+		<script type="text/javascript" src="app/js/angular-ui-router.js"></script>
+		<script src="app/js/angular-sanitize.min.js"></script>
+		<script src="app/js/echarts.common.min.js"></script>
+		<script src="app/js/sockjs.min.js"></script>
+		<script src="app/js/stomp.js"></script>
+
+		<script type="text/javascript" src="app/js/services.js"></script>
+		<script type="text/javascript" src="app/js/config.js"></script>
+		<script type="text/javascript" src="app/js/dashboard.config.js"></script>
+		<script type="text/javascript" src="app/js/app.config.js"></script>
+		<script type="text/javascript" src="app/js/dev.config.js"></script>
+		<script type="text/javascript" src="app/js/setting.config.js"></script>
+		<!-- grid -->
+		<script src="app/js/grid/angular-touch.js"></script>
+	    <script src="app/js/grid/angular-animate.js"></script>
+	    <script src="app/js/grid/csv.js"></script>
+	    <script src="app/js/grid/pdfmake.js"></script>
+	    <script src="app/js/grid/vfs_fonts.js"></script>
+	    <script src="app/js/grid/ui-grid.js"></script>
+		<!-- grid -->
+		<script src="app/js/common.js"></script>
+		<script src="app/js/pagerModel.js"></script>
+		<script src="app/js/dashboard.js"></script>
+		<script src="app/js/sidebar-ctrl.js"></script>
+		<script src="app/js/look-ctrl.js"></script>
+		<script src="app/js/logicGroup-proc.js"></script>
+		<script src="app/js/logicGroup-ctrl.js"></script>
+		<script src="app/js/capture-proc.js"></script>
+		<script src="app/js/capture-ctrl.js"></script>
+		<script src="app/js/monitor-proc.js"></script>
+		<script src="app/js/monitor-ctrl.js"></script>
+ 		<script src="app/js/search-proc.js"></script>
+		<script src="app/js/search-ctrl.js"></script>
+		<script src="app/js/track-proc.js"></script>
+		<script src="app/js/track-ctrl.js"></script>
+		<script src="app/js/timeline-proc.js"></script>
+		<script src="app/js/timeline-ctrl.js"></script>
+		<script src="app/js/camera-proc.js"></script>
+		<script src="app/js/camera-ctrl.js"></script>
+		<script src="app/js/cameragroup-proc.js"></script>
+		<script src="app/js/cameragroup-ctrl.js"></script>
+		<script src="app/js/cameragroup-new.js"></script>  
+		<script src="app/js/role-proc.js"></script>
+		<script src="app/js/role-ctrl.js"></script> 
+		<script src="app/js/user-proc.js"></script>
+		<script src="app/js/user-ctrl.js"></script>  
+		<script src="app/js/audit-log-proc.js"></script>
+		<script src="app/js/audit-log-ctrl.js"></script> 
+		<script src="app/js/audit-log-detail-ctrl.js"></script> 
+		<script src="app/js/alarm-ctrl.js"></script>
+		<script src="app/js/alarm-proc.js"></script>
+		<script src="app/js/monitorManageCtrl.js"></script>
+		<script src="app/js/jqPlug.js"></script>
+		<script src="app/js/camera-storage-ctrl.js"></script>
+		<script src="app/js/cluster-storage.js"></script>
+
+<!--
+		<script src="app/js/camera-list-ctrl.js"></script>
+-->
+	</head>
+
+	<body ng-app="myApp" ng-controller="myAppCtrl">
+		<div ui-view id="myapp"></div>
+		<audio src="alarm.mp3" controls="controls" id="audio" loop style="display:none"/></audio>
+	</body>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=7Bkkj254sprlok0qZvMrxW62GZOB1olp"></script>
+	<script type="text/javascript" src="app/js/baidu-map-import.js"></script>
+</html>
+
+<!-- <script>
+ 	setInterval(function(){
+ 		console.log("内容发过来了");
+ 		$("#no-alarm").css("display","none");
+ 		$("#alarm-come").css("display","block");
+ 		var audio=document.getElementById("audio");
+ 		audio.play();
+ 	}, 10000);
+ 						
+ </script>  -->

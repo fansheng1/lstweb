@@ -1,0 +1,458 @@
+html{
+	width: 100%;
+	height: 100%;
+}
+body {
+	margin:0; font-size: 16px; font-family: "微软雅黑"; color: #e2f7ff;
+	background-color: black;
+}
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/  
+::-webkit-scrollbar  
+{  
+    width: 16px;  
+    height: 16px;  
+    background-color: transparent;  
+}  
+  
+/*定义滚动条轨道 内阴影+圆角*/  
+::-webkit-scrollbar-track  
+{  
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);  
+    border-radius: 10px;  
+    background-color: #F5F5F5;  
+}  
+  
+/*定义滑块 内阴影+圆角*/  
+::-webkit-scrollbar-thumb  
+{  
+    border-radius: 10px;  
+    -webkit-box-shadow: inset 0 0 6px white; --abc: rgba(0,0,0,.3);  
+    background-color: #555;  
+}  
+
+/* data tray style */
+@media screen and (min-width: 1200px){
+	.major-data-tray-box {
+		position:absolute; z-index:10; background-color: rgba(50,50,50,0.6);
+		top:10%; right:3%; width:25%;min-height:400px; border-radius: 3px;
+	}
+}
+@media screen and (min-width:992px ) and (max-width: 1199px) {
+	.major-data-tray-box {
+		position:absolute; z-index:10; background-color: rgba(50,50,50,0.6);
+		top:10%; right:3%; width:25%;min-height:400px; border-radius: 3px;
+	}
+}
+@media screen and (min-width:768px ) and (max-width: 991px) {
+	.major-data-tray-box {
+		position:absolute; z-index:10; background-color: rgba(50,50,50,0.6);
+		top:10%; right:3%; width:25%;min-height:400px; border-radius: 3px;
+	}
+}
+
+.major-data-tray {
+	margin:8px; border-radius: 3px; overflow: auto; height: 600px;
+}
+
+.tray-nav-bar {
+	padding:5px;
+}
+.tray-nav-bar>div{
+	display: inline-block; margin:1px;
+	cursor:pointer;
+	border-radius: 2px;
+	border: 2px solid transparent;
+}
+.tray-nav-bar-btn {
+	float:right;
+}
+.tray-nav-bar-btn>div {
+	display: inline-block;
+	border: 2px solid transparent;
+}
+.tray-nav-bar-btn>div:hover{
+	border: 2px solid #999;
+	box-sizing: border-box;
+}
+.tray-nav-bar-btn img{
+	width: 20px;
+	height: 20px;
+}
+
+.major-data-tray table {
+	background-color: rgba(80,80,80,0.5); width:100%; border-radius: 3px;
+}
+
+.major-data-tray table tbody {
+	border: gray solid 2px; width:100%;
+}
+
+.major-data-tray table tbody tr {
+	background-color: rgba(50,50,50,0.5); border: transparent solid 2px;
+}
+.major-data-tray table tbody tr:hover {
+	background-color: rgb(0,0,0);
+	cursor: pointer;
+}
+
+.major-data-tray table tbody tr td {
+	padding: 5px 0;
+}
+
+.data-tray-action-btn-small {
+	border-radius: 2px; border: transparent solid 2px;
+	text-align: center;
+}
+.data-tray-action-btn-small:hover {
+	background-color: #3af1be; color: black;
+}
+/*顶部的浮层框*/
+@media screen and (min-width: 1200px){
+	.major-data-top-box {
+		position:absolute; z-index:10;
+		top:20px; right:42%; width:40%;height:30px; border-radius: 3px;
+	}
+}
+@media screen and (min-width:992px ) and (max-width: 1199px) {
+	.major-data-top-box {
+		position:absolute; z-index:10;
+		top:20px; right:42%; min-width:203px;width:40%;height:30px; border-radius: 3px;
+	}
+}
+@media screen and (min-width:768px ) and (max-width: 991px) {
+	.major-data-top-box {
+		position:absolute; z-index:10;
+		top:20px; right:42%; width:40%;height:30px; border-radius: 3px;
+	}
+}
+
+.major-data-top {
+	margin:8px; border-radius: 3px; overflow: auto; height: 600px;
+}
+
+.top-nav-bar {
+	padding:1em;
+}
+.top-nav-bar > div {
+	display: inline-block;
+}
+.top-nav-bar > div:last-child {
+	display: inline-block; float:right;
+	font-size: 0.8em; cursor: pointer;
+	margin-top: -18px;
+}
+
+.major-data-top table {
+	background-color: rgba(80,80,80,0.5); width:100%; border-radius: 3px;
+}
+
+.major-data-top table tbody {
+	border: gray solid 2px; width:100%;
+}
+
+.major-data-top table tbody tr {
+	background-color: rgba(50,50,50,0.5); border: transparent solid 2px;
+}
+.major-data-tray table tbody tr:hover {
+	background-color: rgba(0,0,0,0.5);
+	cursor: pointer;
+}
+
+.major-data-top table tbody tr td {
+	padding: 5px 0;
+}
+
+.data-top-action-btn-small {
+	border-radius: 2px; border: transparent solid 2px;
+	text-align: center;
+}
+.data-top-action-btn-small:hover {
+	background-color: #3af1be; color: black;
+}
+/*底部的浮层框*/
+@media screen and (min-width: 1400px) {
+	.major-data-bottom-box {
+		position:absolute; z-index:10; background-color: rgba(50,50,50,0.6);
+		top:83%; right:38%; width:45%;min-height:94px; max-height:15%;border-radius: 3px;
+	}
+	.major-img-left{
+		float:left;
+		height: 100%;
+		cursor: pointer;
+	}
+	.major-img-right{
+		float:right;
+		height: 100%;
+		cursor: pointer;
+	}
+	.major-data-bottom{
+		margin:8px;
+		border-radius: 3px;
+		overflow: auto;
+		height: 80%;
+	}
+}
+@media screen and (max-width: 1399px) and (min-width: 1200px){
+	.major-data-bottom-box {
+		position:absolute; z-index:10; background-color: rgba(50,50,50,0.6);
+		top:83%; right:38%; width:45%;min-height:80px; max-height:15%;border-radius: 3px;
+	}
+	.major-img-left{
+		float:left;
+		height: 100%;
+		cursor: pointer;
+	}
+	.major-img-right{
+		float:right;
+		height: 100%;
+		cursor: pointer;
+	}
+	.major-data-bottom{
+		margin:8px;
+		border-radius: 3px;
+		overflow: auto;
+		height: 80%;
+	}
+}
+@media screen and (min-width:992px ) and (max-width: 1199px) {
+	.major-data-bottom-box {
+		position:absolute; z-index:10; background-color: rgba(50,50,50,0.6);
+		top:82%; right:38%; width:45%;height:80px; max-height:15%;border-radius: 3px;
+		overflow: hidden;
+	}
+	.tray-nav-bar > div>span{
+		display: inline-block; float:right;
+		font-size: 0.8em; cursor: pointer;
+	}
+	.major-img-left{
+		float:left;
+		height: 65px;
+		cursor: pointer;
+	}
+	.major-img-right{
+		float:right;
+		width: 12px;
+		height: 65px;
+		cursor: pointer;
+	}
+	.major-data-bottom{
+		margin:5px;
+		border-radius: 3px;
+		overflow: auto;
+		height: 90%;
+	}
+}
+@media screen and (max-width:992px ){
+	.major-data-bottom-box {
+		position:absolute; z-index:10; background-color: rgba(50,50,50,0.6);
+		top:439px; right:365px; width:320px;height:50px; border-radius: 3px;
+	}
+	.tray-nav-bar > div>span{
+		display: inline-block; float:right;
+		font-size: 0.8em; cursor: pointer;
+	}
+	.major-img-left{
+		float:left;
+		height: 100%;
+		cursor: pointer;
+	}
+	.major-img-right{
+		float:right;
+		height: 100%;
+		cursor: pointer;
+	}
+	.major-data-bottom{
+		margin:8px;
+		border-radius: 3px;
+		overflow: auto;
+		height: 80%;
+	}
+	.tray-nav-bar {
+		padding:0;
+		text-align: left;
+	}
+}
+
+.bottom-nav-bar {
+	padding:1em;
+}
+.bottom-nav-bar > div {
+	display: inline-block;
+}
+.bottom-nav-bar > div:last-child {
+	display: inline-block; float:right;
+	font-size: 0.8em; cursor: pointer;
+	margin-top: -18px;
+}
+
+.major-data-bottom table {
+	background-color: rgba(80,80,80,0.5); width:100%; border-radius: 3px;
+}
+
+.major-data-bottom table tbody {
+	border: gray solid 2px; width:100%;
+}
+
+.major-data-bottom table tbody tr {
+	background-color: rgba(50,50,50,0.5); border: transparent solid 2px;
+}
+.major-data-bottom table tbody tr:hover {
+	background-color: rgb(0,0,0);
+	cursor: pointer;
+}
+
+.major-data-top table tbody tr td {
+	padding: 5px 0;
+}
+
+.data-top-action-btn-small {
+	border-radius: 2px; border: transparent solid 2px;
+	text-align: center;
+}
+.data-top-action-btn-small:hover {
+	background-color: #3af1be; color: black;
+
+}
+.major-data-bottom .major-img{
+	float: left;
+	width: 100%;
+	height: 100%;
+}
+.major-data-bottom-img img{
+	width: 70px;
+	height: 70px;
+}
+.major-data-top-box .select-top{
+	width: calc(100% - 90px);
+	min-width: 64px;
+	height: 30px;
+	display:inline-block;
+}
+.major-data-top-box .select-button{
+	height: 28px;
+	min-width: 75px; width: 10%;
+	padding: 0; margin:0;
+	background: #fff;
+	border: 1px solid #aaa;
+	cursor: pointer;
+	box-sizing: border-box;
+}
+.major-data-bottom div{
+	display: inline-block;
+}
+.major-data-bottom div img{
+	border: 2px solid transparent;
+}
+.major-data-bottom div img:hover{
+	border: 2px solid #0d5783;
+}
+
+/* 分页 */
+.cont-page{
+	border-radius: 10px;
+	background: rgba(0, 88, 128, 0.5);
+	position: absolute;
+	bottom: 8px;
+	right: 8px;
+	font-size: 12px;
+	line-height: 34px;
+	padding: 8px;
+}
+.cont-page .page-main div.w-8{
+	display: inline-block;
+	padding:1px 5px;
+	height: 20px;
+	line-height: 20px;
+	border: 1px solid #008fc1;
+	background: #0a3b57;
+	text-align: center;
+	margin:auto 0;
+}
+.cont-page .page-main div.w-26{
+	display: inline-block;
+	padding:1px 5px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	margin:auto 0;
+}
+.cont-page .page-main .pagination {
+	display:inline-block;
+	padding:1px 5px;
+	height: 20px;
+	border: 1px solid #008fc1;
+	background: #0a3b57;
+	text-align: center;
+	margin-bottom: -2px;
+	color: #fff;
+	width:54px;
+}
+.cont-page .page-main div a {
+	display: inline-block;
+	width: 100%;
+	height: 20px;
+	color: white;
+	line-height: 20px;
+	text-align: center;
+}
+/* 分页结束 */
+#taskList{
+	width: 100%;
+	height: 90%;
+	padding-bottom: 4px;
+	overflow: auto;
+}
+#taskRouteList{
+	padding-bottom: 45px;
+	width: 100%;
+	height: 80%;
+	overflow: auto;
+	display: none;
+}
+#taskRouteList .cont-page{
+	line-height: 25px;
+	width: 95%;
+	padding: 6px 3px;
+	background-color: rgba(50,50,50,0.5);
+	border-radius: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	bottom: 5px;
+	right: 4%;
+}
+#taskRouteList .cont-page div.w-8{
+	padding: 1px 3px;
+	background-color: #939090;
+	border-color: #fff;
+}
+#taskRouteList .cont-page div.w-8 .page-btn{
+	display: inline-block;
+	width: 12px;
+	height: 13px;
+}
+#taskRouteList .cont-page>div{
+	float: left;
+	margin-right: 2px;
+}
+#taskRouteList .cont-page .page-main .pagination{
+	width: 48px;
+	background-color: #939090;
+	border-color: #fff;
+}
+#taskRouteList .cont-page div.w-8 .go-first{
+	background: url(../img/page-btn-beginend.png) no-repeat center;
+}
+#taskRouteList .cont-page div.w-8 .go-prev{
+	background: url(../img/page-btn-updown.png) no-repeat center;
+}
+#taskRouteList .cont-page div.w-8 .go-next{
+	background: url(../img/page-btn-updown.png) no-repeat center;
+}
+#taskRouteList .cont-page div.w-8 .go-tail{
+	background: url(../img/page-btn-beginend.png) no-repeat center;
+}
+#taskRouteList .cont-page div.w-8 .go-next, #taskRouteList .cont-page div.w-8 .go-tail{
+	transform: rotateY(180deg);
+}

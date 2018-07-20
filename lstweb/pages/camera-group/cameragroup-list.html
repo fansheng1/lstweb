@@ -1,0 +1,11 @@
+<article class="left-div no-borser position-rel">
+	<div class="cont-1 cont-top">
+		<a href="#/dev/cameragroups/new"><i></i>新建</a>
+		<button ng-click="removeCameraConfigGroups()"><i></i>删除</button>
+		<input class="fr" type="text" id="g_name" ng-model="searchName" placeholder="请输入组名称查询" ng-keydown="keyDown($event)">
+		<button class="suosou" ng-click="searchDataList()" ng-keydown="keyDown($event)">搜索</button>
+	</div>
+	<div class="cont-2 cont-bottom">
+		<div ui-grid="gridOptions" ui-grid-selection ui-grid-pagination ui-grid-resize-columns ui-grid-auto-resize class="grid" style="width:100%; height:100%;"></div>
+	</div>
+</article>

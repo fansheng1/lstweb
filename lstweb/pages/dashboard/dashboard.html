@@ -1,0 +1,73 @@
+<div style="width:100%;height:87%;padding:1.5%;box-sizing:border-box;">
+	 <div class="first clearfix" style="width:100%;height:65%;">
+	 	<div style="width:50%;height:100%; " class="fl notes">
+			<div  class="notes-box clearfix">
+				<div class="one">
+					<div class="tp1 fl"><i></i>系统概述</div>
+					<div class="tp2 fr"><i></i></div>
+				</div>
+				<div class="two">
+					<ul class="title-1 fl">
+						<li>系统名称</li>
+						<li>IP地址</li>
+						<li>MAC地址</li>
+						<li>正常运行时间</li>
+						<li>型号</li>
+						<li>序号</li>
+						<li>版本</li>
+					</ul>
+					<ul class="title-2 fr" ng-repeat="systemSketch in systemSketchs">
+						<li>{{systemSketch.name}}</li>
+						<li>{{systemSketch.controller_ip}}</li>
+						<li>{{systemSketch.controller_mac}}</li>
+						<li>{{systemSketch.up_to_time}}</li>
+						<li>{{systemSketch.model}}</li>
+						<li>{{systemSketch.id}}</li>
+						<li>{{systemSketch.version}}</li>
+					</ul>
+				</div>
+			</div>
+	 	</div>
+	 	<div style="width:50%;height:100%;" class="fr notes">
+			<div  class="notes-box clearfix">
+				<div class="one">
+					<div class="tp1 fl"><i></i>系统设备及用户概述</div>
+					<div class="tp2 fr"><i></i></div>
+				</div>
+				<div class="two two-div">
+					<ul class="title-div w-100">
+						<li ng-repeat="t in (model.sysconf | orderBy : 'order')" class="clearfix">
+							<span ng-bind="t.name" class="fl h-100"></span>
+							<span ng-bind="t.total" class="fr h-100"></span>
+						</li>
+					</ul>
+				</div>
+			</div>
+	 	</div>
+	</div>
+	<div class="notes" style="width:100%;height:35%;">
+		<div  class="notes-box clearfix">
+			<div class="one clearfix">
+				<div class="tp1 fl"><i></i>任务使用情况摘要</div>
+				<div class="tp2 fr"><i></i></div>
+			</div>
+			<div class="two">
+				<ul class="two-ul-div fl w-100">
+					<li ng-repeat="t in (model1.tasks | orderBy : 'order')">
+						<span ng-bind="t.name" class="fl h-100" ></span>
+						<span ng-bind="t.total" class="fr h-100" ></span>
+					</li>
+				</ul>
+				<!-- <ul class="title-2 fr">
+					<li><span></span><span></span></li>
+					<li><span></span><span></span></li>
+					<li><span></span><span></span></li>
+					<li><span></span><span></span></li>
+				</ul> -->
+			</div>
+		</div>
+	</div>
+	
+</div>
+
+	

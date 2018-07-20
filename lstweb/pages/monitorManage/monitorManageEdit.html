@@ -1,0 +1,193 @@
+<article class="left-div no-borser position-rel border bg-color">
+    <div class="grid-title">
+        <div class="grid-title-item">
+            <i class="mon-icon-person"></i>
+            <span title="布控库{{extlib_name}}">布控库&nbsp;-&nbsp;{{extlib_name}}</span>
+        </div>
+    </div>
+    <div class="monitorManageDetail">
+        <div class="grid-wrap my-grid-wrap">
+            <div class="item-nav-hidden">
+                <div>
+                    <span title="{{src_id}}">ID：{{src_id}}</span>
+                    <span title="{{extlib_name}}">名称：{{extlib_name}}</span>
+                    <span title="{{extlib_meno}}">说明：{{extlib_meno}}</span>
+                    <span>
+                        <b ng-click="showSearchFrom()" ng-class="{'toggle':isToggle}"></b>
+                        <span ng-click="addPerson()"><i class="add-icon"></i>添加</span>
+                    </span>
+                </div>
+                <div class="search-form" ng-class="{'animation-toggle':isToggle}">
+                    <div>
+                        <div class="input-group">
+                            <ul>
+                                <li title="{{}}">
+                                    <div>身份证号码：<input ng-model="searchForm.t_id_num" type="text"></div>
+                                    <div>国<span></span>籍：<input ng-model="searchForm.t_nation" type="text"></div>
+                                    <div>民<span></span>族：<input ng-model="searchForm.t_nationality" type="text"></div>
+                                </li>
+                                <li title="{{}}">
+                                    <div>姓<span></span>名：<input ng-model="searchForm.t_name" type="text"></div>
+                                    <div>别<span></span>名：<input ng-model="searchForm.t_alias" type="text"></div>
+                                    <div>性<span></span>别：<input ng-model="searchForm.t_sex" type="text"></div>
+                                </li>
+                                <li title="{{}}">
+                                    <div>宗<b></b>教<b></b>信<b></b>仰：<input ng-model="searchForm.t_religion" type="text"></div>
+                                    <div>住<span></span>址：<input ng-model="searchForm.t_address" type="text"></div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="button-group">
+                            <ul>
+                                <li title="{{}}">
+                                    <div ng-click="importCSV()"><i class="import-icon"></i> 导入用户信息</div>
+                                </li>
+                                <li title="{{}}">
+                                    <div ng-click="searchData(searchForm)"><i class="search-icon"></i> 搜索</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--批量导入-->
+            <div ui-grid="gridOptionsEdit" ui-grid-pagination ui-grid-resize-columns ui-grid-selection ui-grid-auto-resize style="height: 100%;padding-top: 50px;box-sizing: border-box;"></div>
+            <div class="importModel" dialog="false"><!--最外层需要有dialog=="false"-->
+                <div class="monitor-import-style">
+                    <div class="dialogTitle"><!--header 需要有class='dialogTitle'-->
+                        <i class=""></i>导入用户信息
+                    </div>
+                    <div class="dialogBody"><!--body 需要有class='dialogBody'-->
+                        <form id="fileForm">
+                            <a href="javascript:void(0);" class="monitor-file">选择导入文件
+                                <input type="file" name="file">
+                            </a>
+                            <div class="showFileName"></div>
+                        </form>
+                        <div ui-grid="fileOptions" ui-grid-resize-columns ui-grid-selection ui-grid-auto-resize style="min-height:187px;"></div>
+                        <p>
+                            <span ng-click="getItem()"><i class="save-icon-btn"></i> 保存</span>
+                            <span dialog-toggle><i  class="icon-close-btn"></i> 取消</span><!--开关按钮增加dialog-toggle就可以控制关闭的开启-->
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--单个添加-->
+            <div class="addPerson" dialog="false"><!--最外层需要有dialog=="false"-->
+                <div class="monitor-import-style">
+                    <div class="dialogTitle"><!--header 需要有class='dialogTitle'-->
+                        <i class=""></i> 添加用户信息
+                    </div>
+                    <div class="dialogBody"><!--body 需要有class='dialogBody'-->
+                        <form name="addPersonForm">
+                            <div class="imgDiv fl">
+                                <div style="width: 100%;height: 100%" ng-show="!imgLength">
+                                    <i class="icon-picture"></i>
+                                    <a href="javascript:void(0);" class="monitor-file"> 添加目标照片
+                                        <input type="file" name="img">
+                                    </a>
+                                </div>
+                                <div ng-class="{'img_show':imgLength}">
+                                    <img ng-show="imgLength" src="{{imgPath}}" class="monitor-img">
+                                </div>
+                            </div>
+                            <div class="fromBody fr" ng-init="putForm = {}">
+                                <ul>
+                                    <li ng-show="0"><input type="text" ng-model="putForm.t_image" ng-required="true"></li>
+                                    <li title="{{putForm.t_name}}"><sup>*</sup>姓名&nbsp;:&nbsp;<input name="t_name" type="text" ng-model="putForm.t_name" ng-required="true"></li>
+                                    <li title="{{putForm.t_sex}}">性别&nbsp;:&nbsp;<input type="text" ng-model="putForm.t_sex"></li>
+                                    <li title="{{putForm.t_alias}}">别名&nbsp;:&nbsp;<input type="text" ng-model="putForm.t_alias"></li>
+                                    <li title="{{putForm.t_nation}}">国籍&nbsp;:&nbsp;<input type="text" ng-model="putForm.t_nation"></li>
+                                    <li title="{{putForm.t_age}}">年龄&nbsp;:&nbsp;<input type="text" ng-model="putForm.t_age"></li>
+                                    <li title="{{putForm.t_nationality}}">民族&nbsp;:&nbsp;<input type="text" ng-model="putForm.t_nationality"></li>
+                                    <li title="{{putForm.t_id_num}}">身份证号&nbsp;:&nbsp;<input type="text" ng-model="putForm.t_id_num"></li>
+                                    <li title="{{putForm.t_passport_num}}">护照&nbsp;:&nbsp;<input type="text" ng-model="putForm.t_passport_num"></li>
+                                    <li title="{{putForm.t_other_num}}">其他证件&nbsp;:&nbsp;<input type="text" ng-model="putForm.t_other"></li>
+                                    <li title="{{putForm.t_religion}}">宗教信仰&nbsp;:&nbsp;<input type="text" ng-model="putForm.t_religion"></li>
+                                    <li title="{{putForm.t_birthday}}">生日&nbsp;:&nbsp;<input type="text" ng-model="putForm.t_birthday"></li>
+                                    <li title="{{putForm.t_address}}">住址&nbsp;:&nbsp;<input type="text" ng-model="putForm.t_address"></li>
+                                    <li>
+                                        <span role="button" ng-click="addPersonInfo(addPersonForm.t_name.$invalid||haveImg)" ng-disabled="addPersonForm.t_name.$invalid||haveImg"><i class="save-icon-btn"></i> 保存</span>
+                                        <span dialog-toggle><i  class="icon-close-btn"></i> 取消</span><!--开关按钮增加dialog-toggle就可以控制关闭的开启-->
+                                    </li>
+                                </ul>
+                                <p class="tips-red">添加“*”号的为必填信息</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--查看个人资料-->
+            <div class="lookInfo" dialog="false"><!--最外层需要有dialog=="false"-->
+                <div class="monitor-import-style">
+                    <div class="dialogTitle"><!--header 需要有class='dialogTitle'-->
+                        <i class=""></i>&nbsp;当前目标详情
+                        <span class="span" ng-click="editInfo()"><b class="icon-pan"></b>编辑</span>
+                    </div>
+                    <div class="dialogBody"><!--body 需要有class='dialogBody'-->
+                            <div class="imgDiv fl">
+                                <div class="img_show">
+                                    <img src="{{personDetail.detailImg}}" class="monitor-img">
+                                </div>
+                            </div>
+                            <div class="fromBody fr">
+                                <ul>
+                                    <li title="{{personDetail.t_name}}">姓名&nbsp;:&nbsp;<span ng-bind="personDetail.t_name"></span></li>
+                                    <li title="{{personDetail.t_sex}}">性别&nbsp;:&nbsp;<span ng-bind="personDetail.t_sex"></span></li>
+                                    <li title="{{personDetail.t_alias}}">别名&nbsp;:&nbsp;<span ng-bind="personDetail.t_alias"></span></li>
+                                    <li title="{{personDetail.t_nation}}">国籍&nbsp;:&nbsp;<span ng-bind="personDetail.t_nation"></span></li>
+                                    <li title="{{personDetail.t_age}}">年龄&nbsp;:&nbsp;<span ng-bind="personDetail.t_age"></span></li>
+                                    <li title="{{personDetail.t_nationality}}">民族&nbsp;:&nbsp;<span ng-bind="personDetail.t_nationality"></span></li>
+                                    <li title="{{personDetail.t_id_num}}">身份证号&nbsp;:&nbsp;<span ng-bind="personDetail.t_id_num"></span></li>
+                                    <li title="{{personDetail.t_passport_num}}">护照&nbsp;:&nbsp;<span ng-bind="personDetail.t_passport_num"></span></li>
+                                    <li title="{{personDetail.t_other_num}}">其他证件&nbsp;:&nbsp;<span ng-bind="personDetail.t_other_num"></span></li>
+                                    <li title="{{personDetail.t_religion}}">宗教信仰&nbsp;:&nbsp;<span ng-bind="personDetail.t_religion"></span></li>
+                                    <li title="{{personDetail.t_birthday}}">生日&nbsp;:&nbsp;<span ng-bind="personDetail.t_birthday"></span></li>
+                                    <li title="{{personDetail.t_address}}">住址&nbsp;:&nbsp;<span ng-bind="personDetail.t_address"></span></li>
+                                    <li><b dialog-toggle><i  class="icon-close-btn"></i> 关闭</b><!--开关按钮增加dialog-toggle就可以控制关闭的开启--></li>
+                                </ul>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <!--编辑个人资料-->
+            <div class="editInfo" dialog="false"><!--最外层需要有dialog=="false"-->
+                <div class="monitor-import-style">
+                    <div class="dialogTitle"><!--header 需要有class='dialogTitle'-->
+                        <i class=""></i>&nbsp;编辑目标信息
+                    </div>
+                    <div class="dialogBody"><!--body 需要有class='dialogBody'-->
+                        <form name="editPersonInfo">
+                            <div class="imgDiv fl">
+                                <div class="img_show">
+                                    <img src="{{personDetail.detailImg}}" class="monitor-img">
+                                </div>
+                            </div>
+                            <div class="fromBody fr">
+                                <ul>
+                                    <li title="{{personDetail.t_name}}"><sup>*</sup>姓名&nbsp;:&nbsp;<input type="text" ng-model="personDetail.t_name" ng-required="true"></li>
+                                    <li title="{{personDetail.t_sex}}">性别&nbsp;:&nbsp;<input type="text" ng-model="personDetail.t_sex"></li>
+                                    <li title="{{personDetail.t_alias}}">别名&nbsp;:&nbsp;<input type="text" ng-model="personDetail.t_alias"></li>
+                                    <li title="{{personDetail.t_nation}}">国籍&nbsp;:&nbsp;<input type="text" ng-model="personDetail.t_nation"></li>
+                                    <li title="{{personDetail.t_age}}">年龄&nbsp;:&nbsp;<input type="text" ng-model="personDetail.t_age"></li>
+                                    <li title="{{personDetail.t_nationality}}">民族&nbsp;:&nbsp;<input type="text" ng-model="personDetail.t_nationality"></li>
+                                    <li title="{{personDetail.t_id_num}}">身份证号&nbsp;:&nbsp;<input type="text" ng-model="personDetail.t_id_num"></li>
+                                    <li title="{{personDetail.t_passport_num}}">护照&nbsp;:&nbsp;<input type="text" ng-model="personDetail.t_passport_num"></li>
+                                    <li title="{{personDetail.t_other_num}}">其他证件&nbsp;:&nbsp;<input type="text" ng-model="personDetail.t_other_num"></li>
+                                    <li title="{{personDetail.t_religion}}">宗教信仰&nbsp;:&nbsp;<input type="text" ng-model="personDetail.t_religion"></li>
+                                    <li title="{{personDetail.t_birthday}}">生日&nbsp;:&nbsp;<input type="text" ng-model="personDetail.t_birthday"></li>
+                                    <li title="{{personDetail.t_address}}">住址&nbsp;:&nbsp;<input type="text" ng-model="personDetail.t_address"></li>
+                                    <li>
+                                        <span ng-click="editItem(editPersonInfo.$invalid)" ng-disabled="editPersonInfo.$invalid"><i class="save-icon-btn"></i> 保存</span>
+                                        <span dialog-toggle><i  class="icon-close-btn"></i> 取消</span><!--开关按钮增加dialog-toggle就可以控制关闭的开启-->
+                                    </li>
+                                </ul>
+                                <p class="tips-red">添加“*”号的为必填信息</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>

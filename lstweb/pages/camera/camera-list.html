@@ -1,0 +1,16 @@
+<article class="left-div no-borser position-rel">
+	<div class="cont-1 cont-top">
+		<a href="#/dev/camera/new"><i></i>新建</a>
+		<button ng-click="removeCameras()"><i></i>删除</button>
+		<input class="fr" type="text" id="c_name" ng-model="searchWord" placeholder="请输入MAC地址/IP地址/摄像机名称查询" ng-keydown="keyDown($event)">
+		<button class="suosou" ng-click="searDataList()" ng-keydown="keyDown($event)">搜索</button>
+	</div>
+	<div class="cont-2 cont-bottom">
+		<div ui-grid="gridOptions" ui-grid-selection ui-grid-pagination ui-grid-resize-columns ui-grid-auto-resize class="grid" style="width:100%; height:100%;"></div>
+		<div id="map_box" class="dialogBox map-dialog">
+			<img src="img/close-map.png" id="closeIt" class="closeBtn" ng-click="closeBox('map_box')">
+			<div id="allmap" class="mapLayer"></div>
+		</div>
+
+	</div>
+</article>

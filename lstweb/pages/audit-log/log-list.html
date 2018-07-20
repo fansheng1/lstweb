@@ -1,0 +1,9 @@
+<article class="left-div no-borser position-rel">
+	<div class="cont-1 cont-top">
+		<input class="fr" type="text" id="log_name" ng-model="searchTime" placeholder="请输入时间查询" ng-keydown="keyDown($event)">
+		<button class="suosou"  ng-click="searchLogByTime()" ng-keydown="keyDown($event)">搜索</button>
+	</div>
+	<div class="cont-2 cont-bottom">
+		<div ui-grid="gridOptions1" ui-grid-selection ui-grid-pagination ui-grid-resize-columns ui-grid-auto-resize ui-grid-move-columns class="grid" style="width:100%;height:100%;">
+	</div>
+</article>

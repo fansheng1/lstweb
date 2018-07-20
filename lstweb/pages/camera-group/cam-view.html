@@ -1,0 +1,68 @@
+<!-- <div class="camers" ng-controller="shebe">
+	<p>编辑(摄像机名称)</p>
+	<div class="line"></div>
+	<form>
+		<label class="fl labe_1">mac地址</label>
+		<div class="group name fr"><input type="text" ng-model="model.mac"/>
+		</div>
+		<label class="fl labe_2">设备名称</label>
+		<div class="group test fr"><input type="text" ng-model="model.name"/>
+		</div>
+		<label class="fl labe_3">说明</label>
+		<div class="group member fr"><input type="text"/>
+		</div>
+		<label class="fl labe_4">帧率</label>
+		<div class="group name fr"><input type="text"/>
+		</div>
+		<label class="fl labe_4">动态参数</label>
+		<div class="group name fr"><input type="text"/>
+		</div>
+		<label class="fl labe_4">位置</label>
+		<div class="group name fr"><input type="text"/>
+		</div>
+		<label class="fl labe_4">区域名</label>
+		<div class="group name fr">
+			<select style="width:100%;height:100%;" ng-init="selectedName = names[0]" ng-model="selectedName" ng-options="x for x in names"></select>
+		</div>
+		<select style="width:398px;height:22px;margin-bottom: 12px;" ng-init="selectedName = names[0]" ng-model="selectedName" ng-options="x for x in names"></select>
+		<label class="fl labe_4">GPS坐标</label>
+		<div class="group name fr" style="border:none;background: none">
+			<div class="little_group longitude clearfix">
+				<label>经度</label>
+				<div class="fr"><input type="text" ng-model="model.longitude"/></div>
+			</div>
+			<div class="little_group clearfix">
+				<label>纬度</label>
+				<div class="fr"><input type="text" ng-model="model.latitude"/></div>
+			</div>
+		</div>
+	</form>
+</div>
+<div>
+	<button style="width:120px;height:30px;margin-top: 2%;margin-left: 11%;border-radius: 7px;background: #1095f1;border: none;color:#fff;">保存设置</button>
+</div> -->
+<div class="sha clearfix fr" ng-controller="viewCameraCtrl">
+	<nav class="plat fr"></nav>
+	<article class="fl">
+		<nav ng-bind="edit_status">编辑任务详情</nav>
+			<div class="cont">
+				<form class="form-table form-div-top">
+					<!--<label class="editLabel-medium editLabel-label">设备名称</label>-->
+					<!--<input class="editInput edit-input" type="text" id="name" ng-model="model.cname"><br>-->
+					<!--<label class="editLabel-medium editLabel-label">mac地址</label>-->
+					<!--<input class="editInput edit-input" type="text" id="mac" ng-model="model.mac" readonly><br>-->
+					<!--<label class="editLabel-medium editLabel-label">所属配置组</label>-->
+					<!--<input class="editInput edit-input" type="text" id="name" ng-model="model.groupName"><br>-->
+					<!--<label class="editLabel-medium editLabel-label">经度</label>-->
+					<!--<input class="editInput edit-input" type="text" id="longitude" ng-model="model.longitude"><br>-->
+					<!--<label class="editLabel-medium editLabel-label">纬度</label>-->
+					<!--<input class="editInput edit-input" type="text" id="latitude" ng-model="model.lat"><br>-->
+					<label class="editLabel-medium editLabel-label">摄像机视频流地址</label>
+					<input class="editInput edit-input" type="text" id="latitude"><br>
+					<div class="in in-5 search">
+						<button class="actBtn actbtn-left-left" type="button" ng-click="saveCamera()">保存设置</button>
+					</div>
+				</form>
+			</div>
+	</article>
+</div>

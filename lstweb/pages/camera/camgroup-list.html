@@ -1,0 +1,50 @@
+<article class="fr" ng-controller="configGroupListCtrl">
+	<div class="cont-1">
+		<button class="new_built" ng-click="editCameraConfigGroup(undefined)"><i></i>新建</button>
+		<button ng-click="removeCameraConfigGroups()"><i></i>删除</button>
+		<input class="fr" type="text" id="g_name" placeholder="请输入相关文字查询" ng-keydown="keyDown($event)">
+		<button class="suosou" ng-click="SearchConfigGroupByName()" ng-keydown="keyDown($event)">搜索</button>
+	</div>
+	<div class="cont-2">
+		<div class="task-list-container">
+			<table>
+				<tr class="title">
+					<th><input type="checkbox" name="vehicle" id="cameraGroupListSelAll" value="Bike" ng-click="selectAll()"></th>
+					<th>名称</th>
+					<th>说明</th>
+					<th>子设备数量</th>
+					<th>操作</th>
+				</tr>
+				<tr class="list-item" ng-repeat="groups in model" onclick="checkTableTrItem(this)">
+					<td><input type="checkbox" ng-model="chk" name="vehicleItem" value="Bike"></td>
+					<td>{{groups.name}}</td>
+					<td>{{groups.desc}}</td>
+					<td>{{groups.length}}</td>
+					<td class="lianjie">
+						<div class="lianjie-1 clearfix">
+							<button class="tasklist-action-btn" ng-click="editCameraConfigGroup(groups.id)">编辑</button>
+							<button class="tasklist-action-btn" ng-click="delCameraConfigGroup(groups.id)">删除</button>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="bg-page">
+			<div class="pager fr">
+				<div><a href="" ng-click="gotoFirst()">首页</a></div>
+				<div><a href="" ng-click="gotoPrev()">上一页</a></div>
+				<div><a href="">{{ pager.page }} / {{ pager.pages }}</a></div>
+				<div><a href="" ng-click="gotoNext()">下一页</a></div>
+				<div><a href="" ng-click="gotoTail()">尾页</a></div>
+				<span>每页显示</span>
+				<input class="pagination" autocomplete="off" ng-model="pager.page_size"/>
+				<span>项,</span>
+				<span>转到</span>
+				<input class="pagination" autocomplete="off" ng-model="pager.page"/>
+				<span>页</span>
+				<div class="pager-end"><a href="" ng-click="goto()">确定</a></div>
+			</div>
+		</div>
+
+	</div>
+</article>

@@ -1,0 +1,54 @@
+<article class="left-div no-borser position-rel">
+	<i class="i-title top-26px">查看任务详情</i>
+	<div class="div-active refresh-div position" id="refresh-div">
+		<span ng-class="{'coin-red':!running,'coin-green':running}" class="coin fl"></span>
+		<button class="button-active refresh-btn" ng-click="toggleRefreshTimeResult()" style="float: left!important;">{{ conf.refresh ? "停止刷新结果":"开启刷新结果"
+			}}</button>
+		<img class="active-img"  style="display: block" src="img/animate.png" alt=""/>
+		<img class="active-img-right" style="display: none" src="img/animate.gif" alt=""/>
+	</div>
+	<aside class="map_1 cont-2 cont-bottom border no-position bg-color" style="padding-top:55px;">
+		<div class="cont-table">
+			<table class="table table_2" style="border:none;padding-top:15px;">
+				<tr class="title1 title">
+					<th>序号</th>
+					<th>创建时间</th>
+					<th>目标图片</th>
+					<th>摄像机名称</th>
+					<th>操作</th>
+				</tr>
+				<tr ng-repeat="seq in image_seqence">
+					<td>{{ $index }}</td>
+					<td>{{ seq.ts }}</td>
+					<td><img style="width:80px;height:80px;" src="{{seq.file}}" /></td>
+					<td>{{seq.camera}}</td>
+					<td>
+						<div class="lianjie-2 lianjie-button clearfix">
+							<!--<button type="button" class="fl" ng-click="toggle()">查看</button>-->
+							<button type="button" class="btn-onload">下载</button></div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</aside>
+	<div class="bg-page cont-page">
+		<div class="page page-main">
+			<div class="w-8"><a href="" ng-click="gotoFirst()">首页</a></div>
+			<div class="w-8"><a href="" ng-click="gotoPrev()">上一页</a></div>
+			<div class="w-8"><a href="">{{ pager.page }} / {{ pager.pages }}</a></div>
+			<div class="w-8"><a href="" ng-click="gotoNext()">下一页</a></div>
+			<div class="w-8"><a href="" ng-click="gotoTail()">尾页</a></div>
+			<div class="w-26">
+				<span>每页显示</span>
+				<input class="pagination" autocomplete="off" ng-model="pager.page_size"/>
+				<span>项,</span>
+			</div>
+			<div class="w-26">
+				<span>转到</span>
+				<input class="pagination" autocomplete="off" ng-model="pager.page"/>
+				<span>页</span>
+			</div>
+			<div class="page-end w-8"><a href="" ng-click="goto()">确定</a></div>
+		</div>
+	</div>
+</article>

@@ -1,0 +1,110 @@
+<article class="left-div no-borser position-rel">
+	<i ng-bind="edit_status" class="i-title top-26px">新增</i>
+	<div class="cont cont-bottom border no-position bg-color" id="refBox">
+		<div class="put search-box">
+			<div class="put_in fl search-left">
+				<form name="newSearchForm" action="/controller/search/uploads" method="post" enctype="multipart/form-data" id="up">
+					<p class="every-attr">
+						<label class="attr-label">任务名称</label>
+						<input class="task-name attr-input w-200px" autocomplete="off" ng-model="model.task_name" id="t_name" type="text" ng-required="true">
+					</p>
+					<p class="every-attr">
+						<label class="attr-label">任务说明</label>
+						<input class="task-name attr-input w-200px" autocomplete="off" ng-model="model.task_desc" id="t_desc" type="text">
+					</p>
+					<div class="in in-1" ng-controller="camappGroupList">
+						<p class="every-attr">
+							<label class="attr-label">摄像机组</label>
+							<select style="" class="attr-input w-200px" id="group_id" ng-model="model.group_id" ng-required="true">
+								<option ng-repeat="group in camappGroups" value="{{group['id']}}">{{group["name"]}}</option>
+							</select>
+						</p>
+					</div>
+					<div class="every-attr">
+						<label class="attr-label">开始时间</label>
+						<div class="put-2 attr-data">
+							<input autocomplete="off" ng-required="true" id="start_time" class="attr-input w-200px date-icon" placeholder="" class="laydate-icon input-font" onclick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" ng-model="model.startTime">
+						</div>
+					</div>
+					<div class="every-attr">
+						<label class="attr-label">结束时间</label>
+						<div class="put-3 attr-data">
+							<input autocomplete="off" ng-required="true" id="stop_time" class="attr-input w-200px date-icon" placeholder="" class="laydate-icon input-font" onclick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" ng-model="model.endTime">
+							<i class="date-icon"/></i><!-- onclick="stop_time.click();"-->
+						</div>
+					</div>
+					<div class="seek-div">
+						<div class="seek-1 clearfix">
+							<div class="seek-1-2">
+								<div id="little" class="checkbox every-attr">
+									<label class="attr-label">选项</label>(至少选择一种方式)<br/><br/>
+									<input type="checkbox" class="edit-checkbox marginL-20" ng-model="model.picture" ng-checked="model.picture==true" id="id_search_pic"/>
+									<label for="id_search_pic">在照片库搜索目标</label><br/><br/>
+									<input type="checkbox" class="edit-checkbox marginL-20" ng-model="model.video" ng-checked="model.video==true" id="id_search_video"/>
+									<label for="id_search_video">在视频库搜索目标</label><br/>
+								</div>
+								<div id="littled" class="every-attr">
+									<label class="attr-label">阈值</label>
+									<input class="price attr-input w-200px" id="similarity" type="text" name="threshold" placeholder="请输入相关阈值" ng-model="model.similarity" ng-required="true">
+									<progress style="display: none;" id="progress" max="100" value="0"></progress>
+								</div>
+								<input id="_idFiles1" class="Entry" autocomplete="off" type="file" name="files" multiple style="display:none;">
+								<div class="in in-5 search search-focus every-attr btn-group paddingL-10">
+									<button class="actBtn" type="button" onclick="_idFiles1.click();">添加搜索资源</button>
+									<button class="actBtn btn" type="button" ng-click="updateSearchTask()" ng-disabled="newSearchForm.$invalid||!(model.picture||model.video)" ng-class="{'unClick':newSearchForm.$invalid||!(model.picture||model.video)}">{{conf.refresh ? "添加":"更新"}}</button>
+									<button class="actBtn btn" type="button" ng-click="startSearch()">开始检索</button>
+									<button class="actBtn btn" type="button" ng-click="stopSearch()">停止检索</button>
+									<!-- <button class="actBtn" type="button" ng-click="toggleRefreshSearchResult()">{{ conf.refresh ? "停止刷新结果":"开启刷新结果" }}</button> -->
+									<a class="actBtn btn" ng-click="goSearchView(model)" style="font-size:10px;text-align:center;display: flex;justify-content: center;align-items: center;margin-left: 12px;">查看检索结果</a>
+									<span id="taskStatus" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="fr scrollbar scrollbar-info search-right" id="images" auto-extend ref-height="refBox">
+				<div ng-repeat="obj in model.objects" class="photo-gallery">
+					<p>
+						<img src="{{obj.url}}" ng-click="showSearchPicture(obj)" ng-if="obj.type == undefined || obj.type == 'image'"/>
+						<i ng-click="deleteSearchPicture(obj.url,$event)"></i>
+					</p>
+					<video src="{{obj.url}}" ng-if="obj.type == 'video'" controls="controls"/>
+				</div>
+				<div class="popup" id="popup">
+					<div class="popup-dialog">
+						<div class="popup-content">
+							<div class="popup-header">
+								<span data-dismiss="modal" ng-click="closeInfo();" class="close">&times;</span>
+								<h4>请输入当前照片信息</h4>
+							</div>
+							<div class="popup-body">
+								<div class="popup-input">
+									<label for="uname">姓名</label>:<input id="uname" ng-model="picMeta.name" type="text"/>
+								</div>
+								<div class="popup-input">
+									<label for="age">年龄</label>:<input id="age" ng-model="picMeta.age"type="text"/>
+								</div>
+								<div class="popup-input">
+									<label for="sex">性别</label>:<input id="sex" ng-model="picMeta.sex" type="text"/>
+								</div>
+								<div class="popup-input">
+									<label for="nation">民族</label>:<input id="nation" ng-model="picMeta.nation" type="text"/>
+								</div>
+								<div class="popup-input-left">
+									<label for="identity_id">身份证号</label>:<input id="identity_id" ng-model="picMeta.identity_id" type="text"/>
+								</div>
+								<div class="popup-button">
+									<button type="button" ng-click="savePictureMeta();">保存</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</article>
+
+
+

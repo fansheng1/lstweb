@@ -1,0 +1,113 @@
+<article class="left-div no-borser position-rel">
+	<i ng-bind="edit_status" class="i-title top-26px">新增</i>
+	<div class="cont cont-bottom border no-position bg-color" id="refBox">
+		<div class="seek put put-info" style="width:100%;height:100%;margin-left:0px">
+			<form class="form-group fl search-left" action="/controller/monitor/uploads" method="post" enctype="multipart/form-data" id="tf" name="monitorForm">
+				<div class="seek-1-2">
+					<p class="every-attr">
+						<label class="attr-label">任务名称</label>
+						<input class="attr-input w-200px" type="text" id="t_name" ng-model="model.task_name" ng-required="true">
+					</p>
+					<p class="every-attr">
+						<label class="attr-label">任务说明</label>
+						<input type="text" id="t_desc" class="attr-input w-200px" autocomplete="off" ng-model="model.task_desc">
+					</p>
+					<div class="in in-1" ng-controller="camappGroupList">
+						<p class="every-attr">
+							<label class="attr-label">摄像机组</label>
+							<select style="" class="attr-input w-200px" id="group_id" ng-model="model.group_id" ng-required="true">
+								<option ng-repeat="group in camappGroups" value="{{group['id']}}">{{group["name"]}}</option>
+							</select>
+						</p>
+					</div>
+					<div class="every-attr">
+						<label class="attr-label">开始时间</label>
+						<div class="put-2 attr-data">
+							<input id="mon_start_time" ng-required="true" autocomplete="off" placeholder="" class="attr-input date-icon w-200px" onclick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" ng-model="model.startTime">
+						</div>
+					</div>
+					<div class="every-attr">
+						<label class="attr-label">结束时间</label>
+						<div class="put-3  attr-data">
+							<input id="mon_stop_time" ng-required="true" autocomplete="off" placeholder="" class="attr-input date-icon  w-200px" onclick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" ng-model="model.endTime">
+						</div>
+					</div>
+					<input id="_idFiles1" class="Entry" autocomplete="off" type="file" name="files" multiple style="display:none;">
+					<div class="every-attr">
+						<label class="attr-label">阈值</label>
+						<input class="price attr-input w-200px" autocomplete="off" type="text" id="mon_similarity" ng-model="model.similarity" ng-required="true"/>
+					</div>
+					<br/>
+					<div class="every-attr">
+						<label class="attr-label">布控库</label>
+						<select ng-model="item" class="attr-input w-200px" ng-change="bindModel()" ng-options="item.key as item.message for item in monitorOptionsList" ng-required="true"></select>
+					</div>
+					<div class="in in-5 Search every-attr btn-group paddingL-10">
+						<button type="button" ng-class="{'unClick':btnCtrl}" class="actBtn btn" id="_idFiles" onclick="_idFiles1.click()" ng-disabled="btnCtrl">选择布控图片</button>
+						<button type="button" class="actBtn btn" ng-click="updateMonitorTask()" ng-disabled="monitorForm.$invalid"  ng-class="{'unClick':monitorForm.$invalid}">{{conf.refresh ? "添加":"更新"}}</button>
+						<button type="button" class="actBtn btn" ng-click="startMonitor()">开始布控</button>
+						<button type="button" class="actBtn btn" ng-click="stopMonitor()">停止布控</button>
+						<button type="button" class="actBtn btn" ng-click="toggleRefreshMonitorResult()">{{ conf.refresh ? "停止刷新结果":"开启刷新结果" }}</button>
+						<a class="actBtn btn" ng-click="goMonitorView(model)" style="font-size:10px;text-align:center;display: flex;justify-content: center;align-items: center;">查看布控结果</a>
+						<!-- href="#/app/monitor/{{model.task_id}}/view" -->
+					</div>
+				</div>
+
+				<!-- <div class="page page-new fr page-info">
+					<div class="page-little"><a href="">上一页</a></div>
+					<div class="page-little"><a href="">1</a></div>
+					<div class="page-little"><a href="">下一页</a></div>
+					<div class="page-little"><a href="">共128页</a></div>
+					<span>转到</span>
+					<input autocomplete="off" class="pagination" />
+					<span>页</span>
+					<div class="page-little"><a href="">确定</a></div>
+				</div> -->
+			</form>
+			<div class="fr scrollbar scrollbar-info search-right" id="images" auto-extend ref-height="refBox">
+				<div class="photo-gallery" ng-repeat="obj in model.objects">
+					<p>
+						<img class="div-showimg" ng-click="showMonitorPicture(obj)" ng-src="{{obj.url}}"/>
+						<i ng-click="deleteMonitorPicture(obj.url,$event)"></i>
+					</p>
+				</div>
+				<div class="popup" id="popup">
+					<div class="popup-dialog">
+						<div class="popup-content">
+							<div class="popup-header">
+								<span data-dismiss="modal" ng-click="closeInfo();" class="close">&times;</span>
+								<h4>请输入当前照片信息</h4>
+							</div>
+							<div class="popup-body">
+								<div class="popup-input">
+									<label for="uname">姓名:</label><input id="uname" ng-model="picMeta.name"  type="text"/>
+								</div>
+								<div class="popup-input">
+									<label for="age">年龄:</label><input id="age" ng-model="picMeta.age" type="text"/>
+								</div>
+								<div class="popup-input">
+									<label for="sex">性别:</label><input id="sex" ng-model="picMeta.sex"  type="text"/>
+								</div>
+								<div class="popup-input">
+									<label for="nation">民族:</label><input id="nation" ng-model="picMeta.nation"  type="text"/>
+								</div>
+								<div class="popup-input">
+									<label for="religion">宗教信仰:</label><input id="religion" ng-model="picMeta.religion"  type="text"/>
+								</div>
+								<div class="popup-input">
+									<label for="identity_id">身份证号:</label><input id="identity_id" ng-model="picMeta.identity_id" type="text"/>
+								</div>
+								<div class="popup-input">
+									<label for="address" class="textarea-label">地址:</label><textarea id="address" ng-model="picMeta.address"></textarea>
+								</div>
+								<div class="popup-button">
+									<button type="button" ng-click="savePictureMeta();">保存</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+		</div>
+</article>

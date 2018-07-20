@@ -1,0 +1,42 @@
+<article class="left-div no-borser position-rel">
+		<i ng-bind="edit_status" class="i-title top-26px">日志详情</i>
+		<div class="cont cont-bottom border no-position bg-color">
+			<div class="line"></div>
+			<div class="seek put put-info">
+				<form class="infoPageGroup form-table">
+					<p class="every-attr">
+						<label class="attr-label">用户名</label>
+						<input class="attr-input" type="text"  ng-model="logdetail.user_name" disabled="disabled" >
+					</p >
+					<p class="every-attr">
+						<label class="attr-label">时间</label>
+						<input class="attr-input" type="text"  ng-model="logdetail.time" disabled="disabled" >
+					</p >
+					<p class="every-attr">
+						<label class="attr-label">动作</label>
+						<input class="attr-input" type="text"  ng-model="logdetail.action"  disabled="disabled" >
+					</p >
+					<p class="every-attr">
+						<label class="attr-label">状态</label>
+						<input class="attr-input" type="text"  ng-model="logdetail.is_success" disabled="disabled" >
+					</p >
+					<div class="history" style="border-top:1px solid #1b5a7a;">
+						<p class="every-attr">
+							<label class="attr-label">操作对象</label>
+							<input class="attr-input" ng-model="logdetail.content.name"></input>
+						</p >
+						<div class="history">
+							<label class="editLabel-medium editLabel-label">操作历史</label>
+							<div ui-grid="gridOptions" ui-grid-selection ui-grid-pagination ui-grid-resize-columns ui-grid-auto-resize ui-grid-move-columns class="grid" style="width:80%;height:50%;color:#000;margin:20px auto;">
+						</div>
+					</div>
+					<!-- <div class="btn-left">
+						<a class="actBtn " href="#/log">返回</a>
+					</div> -->
+				</form>
+			</div>
+		</div>
+</article>
+
+
+<!--  -->

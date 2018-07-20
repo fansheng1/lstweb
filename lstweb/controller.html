@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>
+		</title>
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/head.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/user.css" />
+		<link rel="stylesheet" href="css/controller.css" />
+		<link rel="stylesheet" type="text/css" href="./style/pagination.css" media="screen">
+		<link rel="stylesheet" href="css/ui-grid/ui-grid.css" type="text/css">
+		<script src="js/angular.min.js"></script>
+		<!-- grid -->
+		<script src="js/grid/angular-touch.js"></script>
+	    <script src="js/grid/angular-animate.js"></script>
+	    <script src="js/grid/csv.js"></script>
+	    <script src="js/grid/pdfmake.js"></script>
+	    <script src="js/grid/vfs_fonts.js"></script>
+	    <script src="js/grid/ui-grid.js"></script>
+		<!-- grid -->
+		<script src="js/angular-route.min.js"></script>
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script src="js/jquery-form.js"></script>
+		<script src="js/zhongduan.js"></script>
+		<script src="js/bukong.js"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=7Bkkj254sprlok0qZvMrxW62GZOB1olp"></script>
+		<script type="text/javascript" src="js/baidu-map-import.js"></script>
+			
+		
+		
+		<script src="js/common.js"></script>
+		<script src="js/controller.js"></script>
+		<script src="js/user-ctrl.js"></script>
+		<script src="js/role-ctrl.js"></script>
+		<script src="js/user.js"></script>
+		<script src="js/audit-log.js"></script>
+		<script src="js/audit-log-ctrl.js"></script>
+		<script src="js/audit-log-detail-ctrl.js"></script>
+		<script src="js/role.js"></script>
+		<script src="js/pagerModel.js"></script> 
+	</head>
+
+	<body ng-app="myApp">
+		<div1>
+		</div1>
+		<div2>
+		</div2>
+	</body>
+
+	<script id="div2" type="text/ng-template">
+		<div class="container clearfix" ng-controller="active">
+			<aside class="fl">
+				<ul>
+					<li ng-click="isActive(0)" class="{{i==0?'active':''}}"><a href="#/user"><i></i>用户/角色</a></li>
+					<li ng-click="isActive(1)" class="{{i==1?'active':''}}"><a href="#/role"><i></i>用户组</a></li>
+					<li ng-click="isActive(2)" class="{{i==2?'active':''}}"><a href="#/log"><i></i>日志管理</a></li>
+				</ul>
+			</aside>
+			<div ng-view></div>
+		</div>
+	</script>
+
+	<!-- 用户列表 -->
+	<script type="text/ng-template">
+		<div ng-include="'temp/controller/user-list.html'"></div>
+	</script>
+	<!-- 用户编辑 -->
+	<script type="text/ng-template">
+		<div ng-include="'temp/controller/user-edit.html'"></div>
+	</script>
+	<!-- 用户新建 -->
+	<script type="text/ng-template">
+		<div ng-include="'temp/controller/new-user.html'"></div>
+	</script>
+
+</html>

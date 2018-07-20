@@ -1,0 +1,12 @@
+article .cont-1 button {
+    width: 90px;
+    height: 30px;
+    font-size: 16px;
+    margin-right: 20px;
+    color: white;
+    background: url(../img/按钮.png) 0% 0% / 90px 30px no-repeat;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+}

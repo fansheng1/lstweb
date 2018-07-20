@@ -1,0 +1,199 @@
+aside.leftbar {
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+    border: 1px solid #1b5a7a;
+    background: rgba(2, 49, 71, 0.6);
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+/* 大屏幕左侧二级菜单样式 */
+aside.leftbar ul {
+}
+/* aside.leftbar li:hover {
+   background: rgba(1, 84, 81, 0.8);
+   font-weight: bold;
+} */
+.left-bar-close-btn:hover{
+    background:url(../img/left-bar-close-btn-active.png) no-repeat;
+}
+.left-bar-close-btn{
+    position: absolute;
+    top: 40%;
+    right: -11px;
+    width:30px!important;
+    height:65px;
+    border-radius: 20px;
+    cursor: pointer;
+    background:url(../img/left-bar-close-btn.png) no-repeat;
+}
+.min-screen .left-bar-open-btn:hover{
+     background:url(../img/left-bar-open-btn-active.png) no-repeat;
+}
+.min-screen .left-bar-open-btn{
+    position: absolute;
+    top:40%;
+   right: -18px;
+    width:19px!important;
+    height:65px;
+    cursor: pointer;
+    background:url(../img/left-bar-open-btn.png) no-repeat;
+    border-bottom: none;
+}
+aside.leftbar li.selected{
+   font-weight: bold;
+   background: rgba(1, 84, 81, 0.8);
+}
+aside.leftbar li {
+    width: 100%;
+    line-height: 50px;
+}
+aside.leftbar li a {
+    display: block;
+    width: 100%;
+    line-height: 50px;
+    color: white;
+}
+aside.leftbar li i {
+    margin-left: 28px;
+    margin-right: 10px;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-bottom: -13px;
+}
+.max-view{
+    background:url(../img/view.png) no-repeat;
+}
+.max-capture{
+    background:url(../img/capture.png) no-repeat;
+}
+.max-monitor{
+    background:url(../img/monitor.png) no-repeat;
+}
+.max-timeline{
+    background:url(../img/timeline.png) no-repeat;
+}
+.max-track{
+    background:url(../img/track.png) no-repeat;
+}
+.max-logicgroup{
+    background:url(../img/logicgroup.png) no-repeat;
+}
+.max-search{
+    background:url(../img/search.png) no-repeat;
+}
+.max-cameragroup{
+    background: url(../img/camera-group.png) no-repeat;
+}
+.max-camera{
+    background: url(../img/camera.png) no-repeat;
+}
+.max-user{
+    background: url(../img/user.png) no-repeat;
+}
+.max-role{
+    background: url(../img/role.png) no-repeat;
+}
+.max-logmanage{
+    background: url(../img/logmanage.png) no-repeat;
+}
+.max-alarm{
+    background: url(../img/alarm.png) no-repeat;
+}
+.max-camerastroage{
+    background: url(../img/icon-camerastorage.png) no-repeat;
+}
+.max-clusterstorage {
+    background: url(../img/camerastorage.png) no-repeat;
+}
+.max-monitor-manage{
+    background: url("../img/monitorManage.png") no-repeat;
+}
+/* 大屏幕左侧二级菜单样式 End */
+/* 小屏幕左侧二级菜单样式 */
+.min-screen{
+    display:none;
+}
+.min-screen li{
+    width: 100%;
+    line-height: 85px;
+    height:50px;
+    border-bottom: 1px solid #1b5a7a;
+    overflow: hidden;
+}
+.min-screen li:hover{
+    background:rgba(1, 84, 81, 0.8);
+}
+/* .min-screen li a:hover{
+    background:none;
+}
+.min-screen li a:hover em{
+    display:block;
+}
+.min-screen li a em{
+    display:none;
+    width: 100%;
+    height:100%;
+    text-align: center;
+    line-height: 30px;
+} */
+.min-screen li a{
+    display: block;
+    width: 100%;
+    line-height: 85px;
+    height:50px;
+    box-sizing: border-box;
+    background-size: 24px;
+}
+.min-view{
+    background:url(../img/min_view.png) no-repeat center;
+}
+.min-capture{
+    background:url(../img/min_capture.png) no-repeat center;
+}
+.min-monitor{
+    background:url(../img/min_monitor.png) no-repeat center;
+}
+.min-timeline{
+    background:url(../img/min_timeline.png) no-repeat center;
+}
+.min-track{
+    background:url(../img/min_track.png) no-repeat center;
+}
+.min-logicgroup{
+    background:url(../img/min_logicgroup.png) no-repeat center;
+}
+.min-search{
+    background:url(../img/min_search.png) no-repeat center;
+}
+.min-cameragroup{
+    background:url(../img/min_cameragroup.png) no-repeat center;
+}
+.min-camera{
+    background:url(../img/min_camera.png) no-repeat center;
+}
+.min-user{
+    background:url(../img/min_user.png) no-repeat center;
+}
+.min-role{
+    background:url(../img/min_role.png) no-repeat center;
+}
+.min-logmanage{
+    background:url(../img/min_logmanage.png) no-repeat center;
+}
+.min-alarm{
+    background:url(../img/min_alarm.png) no-repeat center;
+}
+.min-camerastroage{
+    background: url(../img/icon-camerastorage.png) no-repeat center;
+}
+.min-clusterstorage {
+    background: url(../img/camerastorage.png) no-repeat center;
+}
+.mix-monitor-manage{
+    background: url("../img/monitorManage.png") no-repeat center;
+}
+/* 小屏幕左侧二级菜单样式 End */
+
+

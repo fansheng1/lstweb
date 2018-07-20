@@ -1,0 +1,14 @@
+<aside class="clearfix leftbar">
+	<ul class="max-screen">
+		<li class="left-bar-close-btn" ng-click="leftBarClose()"></li>
+		<li ng-class="{selected:devTabsIndex==0}"><a ui-sref='dev.camera'><i class="max-camera"></i>摄像机信息</a></li>
+		<li ng-class="{selected:devTabsIndex==1}"><a ui-sref='dev.cameragroups'><i class="max-cameragroup"></i>摄像机组配置</a></li>
+		<li ng-class="{selected:devTabsIndex==2}"><a ui-sref='dev.camerastorage'><i class="max-camerastroage"></i>设备存储管理</a></li>
+	</ul>
+	<ul class="min-screen">
+		<li class="left-bar-open-btn" ng-click="leftBarOpen()"></li>
+		<li ng-class="{selected:devTabsIndex==0}"><a ui-sref='dev.camera' class="min-camera"></a></li>
+		<li ng-class="{selected:devTabsIndex==1}"><a ui-sref='dev.cameragroups' class="min-cameragroup"></a></li>
+		<li ng-class="{selected:devTabsIndex==2}"><a ui-sref='dev.camerastorage' class="min-camerastroage"></a></li>
+	</ul>
+</aside>

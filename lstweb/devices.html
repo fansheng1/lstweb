@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>
+		</title>
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/head.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/zhongduan.css" />
+		<link rel="stylesheet" type="text/css" href="./style/pagination.css" media="screen">
+		<script src="js/angular.min.js"></script>
+		<script src="js/angular-route.min.js"></script>
+		<script src="js/angular-sanitize.min.js"></script>
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script src="js/jquery-form.js"></script>
+		<script src="js/zhongduan.js"></script>
+		<!--<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Spgy3GeQOYSpGWPEHn8dM5O5hWA9k9Ni"></script>-->
+		<script type="text/javascript" src="http://api.map.baidu.com/getscript?v=2.0&ak=7Bkkj254sprlok0qZvMrxW62GZOB1olp"></script>
+		<script type="text/javascript" src="js/baidu-map-import.js"></script>
+		<script src="laydate/laydate.js"></script>
+		
+		<script src="js/common.js"></script>
+		<script src="js/pagerModel.js"></script>
+		<script src="js/camera.js"></script>
+		<script src="js/camera-ctrl.js"></script>
+		<script src="js/camgroup-ctrl.js"></script>
+		<script src="js/cameraGroup.js"></script>
+		<script src="js/camgroup-new.js"></script>
+	</head>
+
+	<body ng-app="myApp">
+		<div1>
+		</div1>
+		<div2>
+		</div2>
+	</body>
+
+	<script id="div2" type="text/ng-template">
+		<div class="container clearfix" ng-controller="active">
+			<aside class="fl">
+				<ul>
+					<li ng-click="isActive(1)" class="{{i==1?'active':''}}"><a href="#/"><i></i>摄像机信息</a></li>
+					<li ng-click="isActive(2)" class="{{i==2?'active':''}}"><a href="#/jizu"><i></i>摄像机组配置</a></li>
+				</ul>
+			</aside>
+			<div ng-view></div>
+		</div>
+	</script>
+
+	<!-- 摄像机 -->
+	<script type="text/ng-template">
+		<div ng-include="'temp/devmgmt/camera-list.html'"></div>
+	</script>
+	<!-- 摄像机编辑 -->
+	<script type="text/ng-template">
+		<div ng-include="'temp/devmgmt/cam-edit.html'"></div>
+	</script>
+	<!--摄像机新建-->
+	<script type="text/ng-template">
+		<div ng-include="'temp/devmgmt/cam-view.html'"></div>
+	</script>
+	<!-- 摄像机组 -->
+	<script type="text/ng-template">
+		<div ng-include="'temp/devmgmt/camgroup-list.html'"></div>
+	</script>
+	<!-- 摄像机组编辑 -->
+	<script type="text/ng-template">
+		<div ng-include="'temp/devmgmt/camgroup-edit.html'"></div>
+	</script>
+	<!-- 摄像机组新建 -->
+	<script type="text/ng-template">
+		<div ng-include="'temp/devmgmt/camgroup-new.html'"></div>
+	</script>
+
+</html>

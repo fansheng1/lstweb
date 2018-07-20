@@ -1,0 +1,107 @@
+<article class="left-div no-borser bg-color cam-group">
+    <div class="info-container position-rel border">
+        <div class="info-header">
+            <div class="info-title">
+                <i class="newly-edit-icon"></i>
+                编辑摄像机组
+            </div>
+        </div>
+        <div class="info-content">
+            <div class="cam-seek high-light-shadow">
+                <div class="seek-content">
+                    <div class="edit-attr">
+                        <div class="edit-attr">
+                            <p>名称</p>
+                            <input type="text" class="edit-input" ng-model="cameraConfigGroup.name">
+                        </div>
+                        <div class="edit-attr">
+                            <p>说明</p>
+                            <input type="text" class="edit-input" ng-model="cameraConfigGroup.desc">
+                        </div>
+                    </div>
+                    <div class="member-list">
+                        <div class="member-header edit-attr">
+                            <div class="clearfix">
+                                <p class="fl">请选择配置组成员:</p>
+                                <span class="edit-add-btn fr" ng-click="showGroupDialog()">
+                                    <i></i>添加
+                                </span>
+                                <div class="edit-search fr">
+                                    <input class="edit-search-input fl" type="text" placeholder="请输入摄像机名称搜索" ng-model="configSearch" ng-change="searchConfigByName()">
+                                    <button class="edit-search-btn fl" ng-click="searchConfigByName()"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="member-wrap">
+                            <ul class="member-select">
+                                <li ng-repeat="c in cameraConfigGroup.cameras">
+                                    <label class="check-label" for="{{'cam_'+$index}}">
+                                        <div>
+                                            <input type="checkbox" ng-checked="isCheckedAll" id="{{'cam_'+$index}}" class="check" name="cameraGroupItem" value="{{c.id}}" data-cname="{{c.name}}">
+                                            {{c.name}}
+                                        </div>
+                                    </label>
+                                </li>
+                            </ul>
+                            <div class="member-footer">
+                                <span class="check-all">
+                                    <label class="check-label"><input type="checkbox" class="check" ng-click="CheckedAll()">全选</label>
+                                </span>
+                                <div class="move-to fr position-rel" ng-controller="cameraGroupList" id="cameraGroup">
+                                    <span class="edit-move-btn">移动到<i></i></span>
+                                    <div class="select fr" id="group_id">
+                                        <span ng-click="showSelect() " title="{{group_name}}">{{group_name}}</span>
+                                    </div>
+                                    <div class="selection_box" ng-show="isShowSelect">
+                                        <input type="text" ng-model="groupSearch" ng-change="searchGroupByName()">
+                                        <ul>
+                                            <li style="height: 20px;" ng-click="notSelectGroup()"></li>
+                                            <li class="item" ng-repeat="group in cameragroups" ng-click="selectGroupId()" title="{{group.name}}">{{group["name"]}}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <span ng-click="removeCameraRels()" class="edit-delete-btn fr"><i></i>删除</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="text-align: center;">
+                        <span class="keep-btn" ng-click="saveConfigGroup()">
+                            <i></i>保存
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--添加摄像机弹出框-->
+        <div class="addCamera" dialog="false">
+            <div class="dialogHead">
+                <div class="clearfix">
+                    <p class="fl">请选择需要添加的摄像机:</p>
+                    <div class="edit-search fr">
+                        <input class="edit-search-input fl" type="text" placeholder="请输入摄像机名称搜索" ng-model="cameraSearch" ng-change="searchCameraByName()">
+                        <button class="edit-search-btn fl" ng-click="searchCameraByName()"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="dialogBody">
+                <ul class="member-select" ng-controller="cameraList" id="idCameraGroupList">
+                    <li ng-repeat="c in cameras">
+                        <label class="check-label">
+                            <div>
+                                <input type="checkbox" class="check" name="cameraItem" value="{{c.cid}}" data-cname="{{c.cameraName}}">
+                                {{c.cameraName}}
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+                <p>
+                    <span ng-click="addCamera()"> 确认</span>
+                    <span dialog-toggle> 取消</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+</article>

@@ -1,0 +1,69 @@
+<article class="left-div no-borser position-rel">
+	<i ng-bind="edit_status" class="i-title top-26px">编辑任务详情</i>
+		<div class="cont cont-bottom border no-position bg-color">
+			<form class="form-table">
+				<p class="every-attr">
+					<!-- <label class="editLabel-medium editLabel-label">设备名称</label>
+					<input class="editInput edit-input" type="text" id="name" ng-model="model.cname"><br> -->
+					<label class="attr-label">设备名称</label>
+					<input class="attr-input" type="text" id="name" ng-model="model.cname">
+				</p>
+				<p class="every-attr">
+					<label class="attr-label">mac地址</label>
+					<input class="attr-input" type="text" id="mac" ng-model="model.mac" readonly>
+				</p>
+				<p class="every-attr">
+					<label class="attr-label">所属配置组</label>
+					<input class="attr-input" type="text" id="name" ng-model="model.groupName">
+				</p>
+				<p class="every-attr">
+					<label class="attr-label">经度</label>
+					<input class="attr-input" type="text" id="longitude" ng-model="model.longitude">
+				</p>
+				<p class="every-attr">
+					<label class="attr-label">纬度</label>
+					<input class="attr-input" type="text" id="latitude" ng-model="model.lat">
+				</p>
+				<p class="every-attr">
+					<label class="attr-label">位置信息</label>
+					<input class="attr-input" type="text" ng-model="model.site">
+				</p>
+				<p class="every-attr">
+					<label class="attr-label">摄像机视频流地址</label>
+					<input class="attr-input" type="text" ng-model="model.stream">
+				</p>
+				<p class="every-attr">
+					<label class="attr-label">视频录像方式</label>
+					<select name="" class="attr-input" ng-model="model.type">
+						<option value="HDD">摄像机硬盘</option>
+						<option value="NVR2" >海康NVR2.0</option>
+					</select>
+				</p>
+				<div class="div-nvr-top">
+					<p class="every-attr">
+						<label class="attr-label">NVR IP地址</label>
+						<input class="attr-input" type="text" ng-model="model.nvr.ip">
+					</p>
+					<p class="every-attr">
+						<label class="attr-label">NVR 用户名</label>
+						<input class="attr-input" type="text" ng-model="model.nvr.user">
+					</p>
+					<p class="every-attr">
+						<label class="attr-label">NVR 密码</label>
+						<input class="attr-input" type="password" ng-model="model.nvr.passwd">
+					</p>
+					<p class="every-attr">
+						<label class="attr-label">NVR 通道号</label>
+						<input class="attr-input" type="text" ng-model="model.nvr.chid">
+					</p>
+				</div>
+				<p class="every-attr btn-group">
+					<button class="actBtn btn" type="button" ng-click="saveCamera()">保存设置</button>
+				</p>
+				<!-- <div class="in in-5 search">
+					<button class="actBtn actbtn-left-left" type="button" ng-click="saveCamera()">保存设置</button>
+				</div> -->
+			</form>
+		</div>
+</article>
+

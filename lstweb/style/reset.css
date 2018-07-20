@@ -1,0 +1,108 @@
+html,body,h1,h2,h3,h4,h5,h6,div,dl,dt,dd,ul,ol,li,p,blockquote,pre,hr,figure,table,caption,th,td,form,fieldset,legend,input,button,textarea,menu{margin:0;padding:0;}
+header,footer,section,article,aside,nav,hgroup,address,figure,figcaption,menu,details{display:block;}
+table{border-collapse:collapse;border-spacing:0;}
+caption,th{text-align:left;font-weight:normal;}
+html,body,fieldset,img,iframe,abbr{border:0;}
+i,cite,em,var,address,dfn{font-style:normal;}
+[hidefocus],summary{outline:0;}
+li{list-style:none;}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.clearfix:after{
+	content:'';
+	visibility: hidden;
+	height: 0;
+	display: block;
+	clear: both;
+}
+.clearfix{zoom:1;}
+/**/ h1,h2,h3,h4,h5,h6,small{font-size:100%;}
+sup,sub{font-size:83%;}
+pre,code,kbd,samp{font-family:inherit;}
+q:before,q:after{content:none;}
+textarea{overflow:auto;resize:none;}
+label,summary{cursor:default;}
+a,button{cursor:pointer;}
+/**/ h1,h2,h3,h4,h5,h6,em,strong,b{font-weight:normal;}
+del,ins,u,s,a,a:hover{text-decoration:none;}
+body,textarea,input,button,select,keygen,legend{font:12px/1.14 arial,simsun;color:#333;outline:0;}
+body{background:#fff;}
+a{
+	text-decoration: none;
+}
+a,a:hover{color:#333;}
+
+/* 修改浏览器默认滚动条样式 */
+body{
+      scrollbar-arrow-color: transparent!important; /*上下按钮上三角箭头的颜色*/
+      scrollbar-face-color: transparent!important; /*滚动条凸出部分的颜色*/
+      scrollbar-3dlight-color: transparent!important; /*滚动条亮边的颜色*/
+      scrollbar-highlight-color: transparent!important; /*滚动条空白部分的颜色*/
+      scrollbar-shadow-color: transparent!important; /*滚动条阴影的颜色*/
+      scrollbar-darkshadow-color: transparent!important; /*滚动条强阴影的颜色*/
+      scrollbar-track-color: transparent!important; /*滚动条背景颜色*/
+
+      scrollbar-base-color: transparent!important; /*滚动条的基本颜色*/
+      Cursor:url(mouse.cur); /*自定义个性鼠标*/
+      /*以上2项适用与：body、div、textarea、iframe*/
+  }
+
+
+  ::-webkit-scrollbar {  /* 滚动条整体部分 */
+      width:14px;
+      margin-right:2px
+  }
+  /* 滚动条两端的按钮样式 start */
+  	::-webkit-scrollbar-button {
+	    display: block; 
+	} 
+	::-webkit-scrollbar-button:horizontal:single-button:start {
+	    width:14px;  
+	    background: url(../img/scroll-top.png) no-repeat;
+	    cursor: pointer;
+	}
+	::-webkit-scrollbar-button:horizontal:single-button:end {
+	    width:14px;
+	    background: url(../img/scroll-bottom.png) no-repeat;
+	    cursor: pointer;
+	}
+	::-webkit-scrollbar-button:vertical:single-button:start {
+	    width: 10px;
+	    background: url(../img/scroll-top.png) no-repeat;
+	    cursor: pointer;
+	}
+	::-webkit-scrollbar-button:vertical:single-button:end {
+	    width: 10px;
+	    background: url(../img/scroll-bottom.png) no-repeat;
+	    cursor: pointer;
+	}
+  /* 滚动条两端的按钮 end */
+  ::-webkit-scrollbar:horizontal {
+      height:10px;
+      margin-bottom:2px
+  }
+  ::-webkit-scrollbar-track {  /* 外层轨道 */
+      border-radius: 10px;
+  }
+  ::-webkit-scrollbar-track-piece {  /*内层轨道，滚动条中间部分 */
+      background-color: transparent!important;
+      border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {  /* 滑块 */
+      width:14px;
+      height:30px;
+      border-radius: 5px;
+      background: #005880!important;
+      position:absolute;
+  }
+  ::-webkit-scrollbar-corner { /* 边角 */
+      width:14px;
+      background-color: red;
+  }
+  ::-webkit-scrollbar-thumb:hover { /* 鼠标移入滑块 */
+      background: #005880;
+  }

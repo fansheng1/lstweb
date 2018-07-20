@@ -1,0 +1,163 @@
+.ui-grid {
+    border: 1px solid #1b5a7a;
+}
+.ui-grid-contents-wrapper {
+    background: rgba(2, 49, 71, 0.6);
+}
+.ui-grid-row .ui-grid-cell{
+    text-align: center;
+}
+.ui-grid-row:nth-child(odd) .ui-grid-cell {
+    background-color: transparent;
+}
+.ui-grid-row:nth-child(even) .ui-grid-cell {
+    background-color: transparent;
+}
+.ng-isolate-scope{
+    color:#e2f7ff !important;
+}
+.ui-grid-cell {
+    border-right: none;
+}
+.ui-grid-row:hover{
+    background: rgba(0, 88, 128, 0.5);
+}
+/* .ui-grid-row{
+	height:38px!important;
+
+} */
+.ui-grid-pager-control input{
+    height:13px;
+}
+.ui-grid-pager-container {
+    float: right;
+    margin-right: 10px;
+}
+.ui-grid-menu-button {
+    z-index: 2;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border: none;
+    background: #005880;
+    cursor: pointer;
+    height: 31px;
+    font-weight: normal;
+}
+.ui-grid-top-panel {
+    position: relative;
+    overflow: hidden;
+    font-weight: bold;
+    background: #005880;
+    text-align: center;
+}
+.ui-grid-header {
+    border:none;
+}
+.ui-grid-pinned-container.ui-grid-pinned-container-left .ui-grid-cell:last-child {
+    box-sizing: border-box;
+    border-right: 1px solid #1b5a7a;
+    border-bottom: 1px solid #1b5a7a;
+}
+/* 报警列表 详情列 a的样式 */
+.alarm_detail:hover{
+    color:#e2f7ff;
+    text-decoration:underline;
+}
+.alarm_detail{
+    color:#e2f7ff;
+}
+/* 报警列表 详情列 a的样式End */
+
+.ui-grid-row.ui-grid-row-selected > [ui-grid-row] > .ui-grid-cell {
+    background-color: rgba(0, 88, 128, 0.5);
+}
+/* 右侧顶部对话框 */
+.ui-grid-menu-button .ui-grid-menu .ui-grid-menu-mid {
+    overflow: auto;
+}
+
+/*操作栏按钮样式*/
+.grid .tasklist-action-btn{
+    font-family: "Microsoft YaHei";
+    font-size: 16px;
+    color: #00afff;
+    text-decoration: underline;
+    background-color: transparent;
+    border: none;
+    margin-right: 5px;
+}
+/*操作按钮样式end*/
+/*菜单栏样式*/
+.ui-grid-header-cell{
+    border-color: #0378a3;
+}
+.ui-grid-header-cell .ui-grid-cell-contents{
+    padding: 8px 5px;
+}
+.ui-grid-header-cell .ui-grid-column-menu-button{
+    top: 3px;
+}
+.ui-grid-header-cell sub.ui-grid-sort-priority-number{
+    display: none;
+}
+/*菜单栏样式end*/
+/*分页组件按钮样式更改*/
+.ui-grid-pager-control .ui-grid-pager-max-pages-number > *{
+    vertical-align: bottom;
+}
+.ui-grid-pager-control button, .ui-grid-pager-row-count-picker select, .ui-grid-pager-row-count-picker input, .ui-grid-pager-row-count-picker button, .my-pager-control{
+    display: inline-block;
+    background-color: #0a3b57;
+    height: 24px;
+    font-size: 13px;
+    color: #fff !important;
+    line-height: 22px !important;
+    border: 1px solid #0378a3;
+    border-radius: inherit;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding: 0px 6px;
+}
+.ui-grid-pager-control .ui-grid-pager-first,.ui-grid-pager-control .ui-grid-pager-previous,.ui-grid-pager-control .ui-grid-pager-next,.ui-grid-pager-control .ui-grid-pager-last{
+    font-family: "Microsoft YaHei";
+    font-size: 13px;
+    background-color: #0a3b57;
+}
+.ui-grid-pager-control button:focus, .ui-grid-pager-control button.focus{
+    background-color: #00afff;
+    border-color: #00afff;
+}
+.ui-grid-pager-control button:hover{
+    background-color: #00afff;
+    border-color: #00afff;
+}
+.ui-grid-pager-max-pages-number .focus{
+    background-color: #00afff;
+    border-color: #00afff;
+}
+.ui-grid-pager-max-pages-number .default{
+    background-color: #0a3b57;
+    border-color: #0378a3;
+}
+
+.ui-grid-pager-count-container,.ui-grid-pager-row-count-label{
+    font-size: 13px;
+}
+
+.ui-grid-pager-row-count-picker input{
+    width: 40px;
+    max-width: 40px;
+    height: 22px;
+}
+.my-pager-control{
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+.my-pager-control b{
+    font-weight: normal;
+}
+.my-pager-control .my-current-page-num{
+    color:#00afff;
+}
+/*分页组件按钮样式end*/

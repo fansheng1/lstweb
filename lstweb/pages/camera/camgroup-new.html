@@ -1,0 +1,66 @@
+<div class="sha clearfix fr" ng-controller="newConfigGroupCtrl">
+	<article class="fl">
+			<nav ng-bind="edit_status">编辑任务详情</nav>
+			<div class="cont">
+					<div class="seek put put-info" >
+								<div class="div-input">
+										<label class="editLabel-medium">名称</label>
+										<input class="editInput input-large" type="text" ng-model="model.name"><br>
+										<label class="editLabel-medium">说明</label>
+										<input class="editInput input-large" type="text" ng-model="model.desc"><br>
+								</div>
+								<div class="div-input-left">
+									<div class="in in-1 div-large in-success" ng-controller="cameraList" id="idCameraGroupList">
+										<label class="editLabel-medium edit-success label-top">摄像机</label>
+										<div class="div-input-left">
+											<select id="camera_id" ng-model="cameras.id">
+												<option name="cameraItem" ng-repeat="c in cameras"
+												        value="{{c.cid}}"
+												        id="{{'cam_'+$index}}" ng-bind="c.name" data-cname="{{c.name}}">
+												</option>
+											</select>
+										<!--<ul class="selectableItemList ul-group">-->
+											<!--<li ng-repeat="c in cameras">-->
+												<!--<input type="checkbox" id="{{'cam_'+$index}}" name="cameraItem" value="{{ c.cid }}" data-cname="{{c.name}}"/>-->
+												<!--<label for="{{'cam_'+$index}}" ng-bind="c.name"></label>-->
+											<!--</li>-->
+										<!--</ul>-->
+										<button class="actBtn btn-info btn-danger-button" type="button" ng-click="addConfigGroup()">添加到当前组
+										</button>
+										</div>
+										<br/>
+										<label class="editLabel-medium label-bottom">组成员</label>
+										<div class="div-input-left">
+											<ul class="selectableItemList ul-group">
+												<li ng-repeat="c in model.cameras" data-cname="{{ c.name }}">
+													<div class="check-div">
+														<input type="checkbox" id="{{'mem_'+$index}}" name="member" value="{{ c.id }}" data-cname="{{ c.name }}"/>
+													</div>
+													<div class="lab-div">
+														<label for="{{'mem_'+$index}}" ng-bind="c.name"></label>
+													</div>
+												</li>
+											</ul>
+											<br/>
+											<div>
+												<button class="actBtn btn-info btn-danger-button" type="button" ng-click="removeCameraRels()">删除</button>
+												<button class="actBtn btn-info btn-danger-button" type="button" ng-click="moveTo()">移动到配置组</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="div-input div-select-top">
+									<div class="in in-1 div-large " ng-controller="cameraGroupList">
+										<label  class="editLabel-medium edit-success">摄像机配置组</label>
+										<select class="select-large"  id="group_id" ng-model="cameragroups.id">
+											<option ng-repeat="group in cameragroups" value="{{group['id']}}">{{group["name"]}}</option>
+										</select>
+									</div>
+								</div>
+						<div class="in in-5 search in-search-div">
+							<button class="actBtn actbtn-left" type="button" ng-click="saveConfigGroup()">添加/更新</button>
+						</div>
+							</div>
+			</div>
+	</article>
+</div>

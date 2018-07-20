@@ -1,0 +1,98 @@
+<article class="div-article left-div">
+	<!-- <nav class="fr" ng-bind="title">实时查看任务信息</nav> -->
+	<div class="left-main look-mian">
+		<div class="look-div main-left look-mian-side">
+			<p class="online-camera">在线摄像机</p><!-- online-camera -->
+			<div class="li_one">
+				<input type="text" id="c_name" class="search-input" placeholder="请输入摄像机名字查询" ng-keydown="keyDown($event)">
+			</div>
+			<div class="camera-div">
+				<ul class="fl overflow-auto-div">
+					<li ng-click="camActive(c);" class="look-left-ul fl" ng-repeat="c in cameras">
+						<a ng-bind="c.name" href=""></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="div-large-right look-mian-cont">
+			<div class="div-video fl look-main-left">
+				<!-- <div class="div-form ">
+					<input type="text" id="c_name" placeholder="请输入摄像机名字查询" ng-keydown="keyDown($event)">
+					<button class="suosou"  ng-click="searchCameraByName()" ng-keydown="keyDown($event)">搜索摄像机</button>
+					<button class="actBtn" ng-click="toggleRefreshLookResult()">{{conf.refresh ? "停止刷新":"开启刷新"}}</button>
+					<p>当前摄像机名称 : {{camera.name}}</p>
+				</div> -->
+				<p class="current-camera-name">当前摄像机名称 : {{camera.name}}</p>
+				<div class="div-left-video current-video">
+					<span class="current-video-name">{{camera.name}} 摄像机的视频 </span>
+					<!--[if IE]>
+					<object type='application/x-vlc-plugin' id='vlc' events='True'
+					        classid='clsid:9BE31822-FDAD-461B-AD51-BE1D1C159921'
+					        codebase="http://downloads.videolan.org/pub/videolan/vlc/latest/win32/axvlc.cab">
+						<param name='mrl' value='http://g3.ykimg.com/0130391F455321692EC42C1496BCB33029ABCB-A4FF
+						-A71D-EC9C-063ED7327684'  />
+						<param name='autoplay' value='true' />
+					</object>
+					<![endif]-->
+					<!--[if !IE]><!-->
+					<object type='application/x-vlc-plugin' id='vlc' events='True'
+					        pluginspage="http://www.videolan.org" codebase="http://downloads.videolan.org/pub/videolan/vlc-webplugins/2.0.6/npapi-vlc-2.0.6.tar.xz">
+						<!--<param name='mrl' value='{{camera.stream}}' id="vlc_mrl"/>-->
+						<param name="autoplay" value="true" />
+					</object>
+					<p ng-if="!isUC" class="not-uc-info">当前浏览器不支持视频播放功能，请使用UC浏览器</p>
+					<!--<![endif]-->
+				</div>
+				<div style="display:none;">
+					<textarea style="height:120px;width:100%;" id="log">
+					</textarea>
+				</div>
+				
+				<div class="div-bottom current-pic-div position-rel">
+					<p class="current-pic-name">
+						实时采集的照片 
+						<span ng-click="toggleRefreshLookResult()" ng-mouseover="showPicInfo()" ng-mouseout="hiddenPicInfo()" ng-class="{'refresh-btn-active': conf.refresh, 'refresh-btn': !conf.refresh}"></span>
+						<span class="pic-info" id="pic-info" ng-bind="picInfo"></span>
+					</p>
+					<div class="div-bottom-img">
+						<!-- <button class="actBtn" ng-click="toggleRefreshLookResult()">{{conf.refresh ? "停止刷新":"开启刷新"}}</button> -->
+						<ul>
+							<li class="clearfix"  ng-repeat="seq in image_seqence_capture track by $index">
+								<img ng-src="{{ seq.file}} " />
+								<div><span class="textSpan" title="{{seq.ts + ' '+ seq.camera}}">{{ seq.ts }}</span><br/><span class="textSpan" title="{{seq.ts + ' '+ seq.camera}}">{{seq.camera}}</span></div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="fr look-main-right">
+				<div class="overflow-auto-div">
+					<table class="table-right">
+						<tr class="one_line">
+							<td>目标图片</td>
+							<td>采集图片</td>
+							<td>目标信息</td>
+							<td>相似度</td>
+							<td>摄像机名称</td>
+							<td>抓拍时间</td>
+						</tr>
+						<tr class="div-right-tr-img" ng-repeat="seq in image_seqence_monitor" ng-click="goMonitorView(seq)"><!-- ng-repeat="seq in image_seqence_monitor"-->
+							<td><img ng-src="{{seq.url_target_image}}" style="width:80px;height:80px;"/></td>
+							<td><img ng-src="{{seq.url_monitor_image}}" style="width:80px;height:80px;"/></td>
+							<td style="padding-left: 6px; text-align: left; max-width: 180px; line-height: 17px;">
+								<p title="姓名:{{seq.name}}&nbsp;身份证号:{{seq.identity_id}}&nbsp;年龄:{{seq.age}}&nbsp;民族:{{seq.nation}}">
+									{{seq.identity_id}}<br/>
+									{{seq.name}}<i ng-show="seq.name&&seq.age || seq.nation&&seq.name">/</i>{{seq.age}}<i ng-show="seq.age && seq.nation">/</i>{{seq.nation}}
+								</p>
+							</td>
+							<td>{{seq.similarity}}</td>
+							<td class="div-right-td-img">{{seq.camera}}</td>
+							<td>{{seq.mon_cap_time}}</td>
+						</tr>
+					</table>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</article>

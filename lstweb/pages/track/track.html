@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html style="height:100%;width:100%">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!-- <link rel="stylesheet" href="css/func_track.css" /> -->
+		<link rel="stylesheet" href="style/track.css" />
+		<script src="app/js/angular.min.js"></script>
+		
+		<script src="app/js/jquery-3.1.1.min.js"></script>
+		<script src="app/js/jquery-form.js"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=7Bkkj254sprlok0qZvMrxW62GZOB1olp"></script>
+		<!--<script type="text/javascript" src="http://api.map.baidu.com/getscript?v=2.0&ak=C442db13ee343023e84546b6765dfcff"></script>-->
+		<!--<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=sSelQoVi2L3KofLo1HOobonW"></script>-->
+		<script type="text/javascript" src="app/js/baidu-map-import.js"></script>
+		<script src="laydate/laydate.js"></script>
+
+		<script src="app/js/common.js"></script>
+		<script src="app/js/pagerModel.js"></script>
+		<script src="app/js/track-ctrl1.js"></script>
+		<script src="app/js/func-track.js"></script>
+	</head>
+
+	<body ng-app="myApp" style="width:100%;height:100%;">
+		<div ng-controller="funcTrackCtrl">
+			<div ng-include="'temp/track/major-data-tray.html'"></div>
+			<div id="allmap" ></div> 
+		</div>
+	</body>
+
+	<script type="text/ng-template">
+		<div ng-include="'temp/track/major-data-tray.html'"></div>
+	</script>
+	<script type="text/ng-template">
+		<div ng-include="'temp/track/minor-data-tray.html'"></div>
+	</script>
+	<script type="text/ng-template">
+		<div ng-include="'temp/track/task-object-list.html'"></div>
+	</script>
+	<script type="text/ng-template">
+		<div ng-include="'temp/track/action-bar.html'"></div>
+	</script>
+</html>

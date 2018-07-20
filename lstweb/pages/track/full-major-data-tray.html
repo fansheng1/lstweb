@@ -1,0 +1,81 @@
+<div class="major-data-tray-box">
+	<div class="major-data-tray">
+		<div class="tray-nav-bar">
+			<div ng-bind="model_task_result.view_name"></div>
+			<div class="tray-nav-bar-btn">
+				<div><span ng-click="showTaskList()"><img src="img/alltask.png" alt="全部任务" title="全部任务"/></span></div>
+				<div><span ng-click="togglePhotoList()"><img src="img/open-photo.png" alt="图片栏" title="图片栏"/></span></div>
+				<div><span ng-click="toggleTaskSearchBar()"><img src="img/hide.png" alt="搜索栏" title="搜索栏"/></span></div>
+			</div>
+		</div>
+		<div id="taskList">
+			<table>
+				<tr ng-repeat="task in model_task_result.tasks"
+					ng-click="activeTaskInfo(task, $event)"
+					ng-mouseover="hlTaskInfo(task.task_id, true)"
+					ng-mouseout="hlTaskInfo(task.task_id, false)">
+					<td ng-bind="task.task_name"></td>
+					<td ng-bind="task.length"></td>
+					<td class="data-tray-action-btn-small" ng-click="showTaskMeta(task.task_id,$event)">...</td>
+				</tr>
+			</table>
+		</div>
+		<div class="" name="pannel" id="taskRouteList">
+			<table>
+				<tr ng-repeat="res in current_task"
+					ng-click="activeTaskRoutePoint(current_task.task_id, res.cid)"
+					ng-mouseover="hlTaskRoutePoint(current_task.task_id, res.cid, true)"
+					ng-mouseout="hlTaskRoutePoint(current_task.task_id, res.id, false)">
+					<td><img ng-src="{{res.cam_fime}}" style="height: 75px; width: 60px;"/></td>
+					<td ng-bind="res.ts"></td>
+					<td ng-bind="res.addr"></td>
+				</tr>
+			</table>
+			<div class="bg-page cont-page">
+				<div class="page page-main">
+					<div class="w-8"><a href="" ng-click="gotoFirst()" class="page-btn go-first" title="首页"></a></div>
+					<div class="w-8"><a href="" ng-click="gotoPrev()" class="page-btn go-prev" title="上一页"></a></div>
+					<div class="w-8"><a href="">{{ pager.page }} / {{ pager.pages }}</a></div>
+					<div class="w-8"><a href="" ng-click="gotoNext()" class="page-btn go-next" title="下一页"></a></div>
+					<div class="w-8"><a href="" ng-click="gotoTail()" class="page-btn go-tail" title="尾页"></a></div>
+					<div class="w-26">
+						<span>第</span>
+						<input class="pagination" autocomplete="off" ng-model="pager.page"/>
+						<span>页</span>
+					</div>
+					<div class="page-end w-8"><a href="" style="" ng-click="goto()">确定</a></div>
+				</div>
+			</div>
+		</div>
+
+		<table name="pannel" id="taskMeta">
+			<tr>
+				<td>任务名称:</td>
+				<td ng-bind="current_task.task_name"></td>
+			</tr>
+			<tr>
+				<td>任务标识:</td>
+				<td ng-bind="current_task.task_id"></td>
+			</tr>
+			<tr>
+				<td>任务结果数:</td>
+				<td ng-bind="current_task.length"></td>
+			</tr>
+		</table>
+	</div>
+</div>
+<div class="major-data-top-box" id="id_search_bar">
+	<select class="select-top" type="text" id="task_id" ng-model="model.task_id">
+		<option ng-repeat="search in searchs" value="{{search['task_id']}}">{{search["task_name"]}}&nbsp;{{search.haveResult ? '&nbsp;[有搜索结果]' : ''}}</option>
+	</select>
+	<button class="select-button" ng-click="addSearchTask()">添加/搜索</button>
+</div>
+<div class="major-data-bottom-box clearfix" id="id_photo_gallery">
+	<div class="major-data-bottom position-rel" id="photo_container">
+		<img class="major-img-left" src="img/button-right.png" ng-click="movePicture(0)" alt=""/>
+		<div class="major-data-bottom-img" ng-repeat="r in current_results">
+			<img ng-src="{{r.cam_fime }}"/>
+		</div>
+		<img class="major-img-right" src="img/button-left.png" ng-click="movePicture(1)" alt=""/>
+	</div>
+</div>
